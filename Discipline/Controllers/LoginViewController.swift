@@ -139,6 +139,8 @@ class LoginViewController: UIViewController {
                     }
                 }
             }
+            self.loadingIndicatorView.stopAnimating()
+            self.view.isUserInteractionEnabled = true
         }
     }
     
