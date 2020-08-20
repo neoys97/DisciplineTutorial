@@ -14,6 +14,7 @@ class Student: Encodable, Decodable {
     var toDoImageURL: String? = nil
     var toDoDesc: String? = nil
     var profilePicURL: String? = nil
+    var goal: String? = nil
     var books: [String] = []
     
     init (name: String) {
@@ -21,6 +22,6 @@ class Student: Encodable, Decodable {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case name, classGroupID, toDoImageURL, toDoDesc, profilePicURL, books
+        case name, classGroupID, toDoImageURL, toDoDesc, profilePicURL, books, goal
     }
 }

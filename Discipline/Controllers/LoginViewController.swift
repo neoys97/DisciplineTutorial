@@ -76,7 +76,6 @@ class LoginViewController: UIViewController {
         else {
             present(Utilities.alertMessage(title: "Error", message: "Email or Password cannot be empty"), animated: true)
         }
-        
     }
     
     @IBAction func switchModeBtnPressed(_ sender: Any) {

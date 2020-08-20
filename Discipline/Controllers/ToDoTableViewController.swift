@@ -18,6 +18,7 @@ class ToDoTableViewController: UITableViewController, ReloadableViewController {
     @IBOutlet weak var toDoTextBgView: UIView!
     @IBOutlet weak var toDoTextView: UITextView!
     @IBOutlet weak var editSaveBtn: UIButton!
+    @IBOutlet var toDoTableView: UITableView!
     
     var rootTabBarController: MainTabBarController!
     let imagePicker = UIImagePickerController()
@@ -66,11 +67,13 @@ class ToDoTableViewController: UITableViewController, ReloadableViewController {
             editSaveBtn.setTitle("Edit", for: .normal)
             toDoImageView.isUserInteractionEnabled = false
             toDoTextView.isEditable = false
+            toDoTableView.backgroundColor = .white
             updateData()
         }
         else {
             editSaveBtn.setTitle("Save", for: .normal)
             toDoImageView.isUserInteractionEnabled = true
+            toDoTableView.backgroundColor = Colors.BurntSienna
             toDoTextView.isEditable = true
         }
         isModifying = !isModifying

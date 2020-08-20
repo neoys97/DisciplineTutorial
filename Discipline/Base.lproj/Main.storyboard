@@ -600,6 +600,7 @@
                         <outlet property="MainView" destination="ceM-ML-enY" id="qOb-ID-KXy"/>
                         <outlet property="editSaveBtn" destination="Vyp-em-YU4" id="pPU-NW-Jo1"/>
                         <outlet property="toDoImageView" destination="EJr-8V-53V" id="taH-9K-5Dt"/>
+                        <outlet property="toDoTableView" destination="t4w-Tk-hKE" id="pEk-m8-Bmq"/>
                         <outlet property="toDoTextBgView" destination="Rtl-3W-sxV" id="7Ih-xC-Eyv"/>
                         <outlet property="toDoTextView" destination="WtB-Vx-SGl" id="2TZ-ef-Zrw"/>
                     </connections>
@@ -618,8 +619,26 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="separatorColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookListDescriptionIdentifier" id="wjE-3C-znT">
+                                <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wjE-3C-znT" id="3F6-3D-a2x">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your description here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAK-Nk-IUH">
+                                            <rect key="frame" x="20" y="11" width="334" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.87843137250000003" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookListCellIdentifier" rowHeight="100" id="zai-RH-dfj" customClass="BookListTableViewCell" customModule="Discipline" customModuleProvider="target">
-                                <rect key="frame" x="20" y="55.5" width="374" height="100"/>
+                                <rect key="frame" x="20" y="99" width="374" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zai-RH-dfj" id="2dn-C2-Ln7">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
@@ -638,12 +657,24 @@
                                             <color key="textColor" red="0.23921568630000001" green="0.35294117650000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sRk-s3-CRh">
+                                            <rect key="frame" x="189" y="58" width="179" height="32"/>
+                                            <segments>
+                                                <segment title="Bought"/>
+                                                <segment title="Not Bought"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="boughtControlChanged:" destination="zai-RH-dfj" eventType="valueChanged" id="6fJ-cd-Jt2"/>
+                                            </connections>
+                                        </segmentedControl>
                                     </subviews>
                                     <color key="backgroundColor" red="0.8784313725490196" green="0.98431372549019602" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="hy9-rs-72k" firstAttribute="leading" secondItem="6XB-vH-mWY" secondAttribute="trailing" constant="20" id="5oG-23-u26"/>
                                         <constraint firstItem="6XB-vH-mWY" firstAttribute="top" secondItem="2dn-C2-Ln7" secondAttribute="top" constant="11" id="60M-Wb-8kY"/>
+                                        <constraint firstAttribute="trailing" secondItem="sRk-s3-CRh" secondAttribute="trailing" constant="6" id="6k6-m9-mB5"/>
                                         <constraint firstItem="hy9-rs-72k" firstAttribute="centerY" secondItem="2dn-C2-Ln7" secondAttribute="centerY" id="cDO-An-wm2"/>
+                                        <constraint firstAttribute="bottom" secondItem="sRk-s3-CRh" secondAttribute="bottom" constant="11" id="dGb-Q6-azC"/>
                                         <constraint firstItem="6XB-vH-mWY" firstAttribute="leading" secondItem="2dn-C2-Ln7" secondAttribute="leading" constant="12" id="weW-U5-7FU"/>
                                         <constraint firstAttribute="bottom" secondItem="6XB-vH-mWY" secondAttribute="bottom" constant="11" id="xgb-Xh-RjG"/>
                                     </constraints>
@@ -651,6 +682,7 @@
                                 <connections>
                                     <outlet property="bookIconView" destination="6XB-vH-mWY" id="CiV-wL-AuD"/>
                                     <outlet property="bookNameLabel" destination="hy9-rs-72k" id="4ld-Do-ZTb"/>
+                                    <outlet property="boughtControl" destination="sRk-s3-CRh" id="F1A-U4-ynS"/>
                                     <segue destination="JAN-v6-92b" kind="presentation" identifier="viewBookDetailSegue" id="JLG-sT-W3N"/>
                                 </connections>
                             </tableViewCell>
@@ -954,9 +986,12 @@
                     <navigationItem key="navigationItem" title="New" id="LmH-Y1-2Rs">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Scy-u1-4ro">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="CEF-uR-hSe">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <rect key="frame" x="259" y="7" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit"/>
+                                <state key="normal" title="Change goal button"/>
+                                <connections>
+                                    <action selector="changeGoal:" destination="ksa-Hi-GH6" eventType="touchUpInside" id="wTn-jc-trc"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
