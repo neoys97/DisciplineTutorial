@@ -75,6 +75,10 @@ class DashboardViewController: UIViewController, ReloadableViewController {
         rootTabBarController.selectedIndex = 2
     }
     
+    @IBAction func switchToNewView(_ sender: Any) {
+        rootTabBarController.selectedIndex = 3
+    }
+    
     func createClassGroupPicker() {
         let classGroupPicker = UIPickerView()
         classGroupPicker.delegate = self
